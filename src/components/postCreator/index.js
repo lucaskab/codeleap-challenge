@@ -12,7 +12,6 @@ function PostCreator(props) {
   const [statusButton, setStatusButton] = useState(true);
 
   useEffect(() => {
-    console.log(title, content, "USE")
     if(title && content){
       setStatusButton(false);
       return;
@@ -41,7 +40,7 @@ function PostCreator(props) {
         content: props.content,
         date,
       });
-      
+
       props.dispatchHandleTitle('');
       props.dispatchHandleContent('');
 

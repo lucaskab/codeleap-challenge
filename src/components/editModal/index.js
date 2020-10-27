@@ -8,17 +8,11 @@ import { handleTitle, handleContent } from '../../actions/postInfos';
 import React, { useState, useEffect } from 'react';
 
 function EditModal(props) {
-  const [restart, setRestart] = useState(false);
   function editPost(){
     props.dispatchUpdatePost({post:props.post, title: props.title, content: props.content});
     props.dispatchHandleTitle('');
     props.dispatchHandleContent('');
   }
-
-  useEffect(() => {
-    console.log("Executou")
-  },[restart]);
-  
 
   return (
     
@@ -44,7 +38,7 @@ function EditModal(props) {
 
         <ButtonContainer>
         <SaveButton onClick={editPost}>save</SaveButton>
-        <CancelButton onClick={()=>{props.click(); setRestart(!restart)}}>Cancel</CancelButton>
+        <CancelButton onClick={()=>props.click()}>Cancel</CancelButton>
         </ButtonContainer>
         </Container>
       </Modal>
